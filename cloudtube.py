@@ -10,13 +10,13 @@ def main():
         STORE = True
 
     if STORE:
-        print 'STORING ', FILE, '...'
+        print('STORING ', FILE, '...')
         STORAGE.write()
     else:
-        print 'RETRIEVING ', FILE, '...'
+        print('RETRIEVING ', FILE, '...')
         STORAGE(FILE, retrieve=True)
 
-    print 'ALL DONE!'
+    print('ALL DONE!')
 
 if __name__ == "__main__":
     main()

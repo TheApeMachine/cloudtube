@@ -7,7 +7,7 @@ class Store:
     def __init__(self, file, retrieve=False):
         self.file       = open(file, 'rb').read()
         self.video_file = file.replace('.txt', '.avi')
-        self.video_out  = Video(self.video_file)
+        self.video_out  = VideoOut(self.video_file)
         self.data       = ''.join('{0:08b}'.format(ord(x), 'b') for x in file)
 
     def write(self):
@@ -33,5 +33,5 @@ class Store:
             self.video_file
         ])
 
-        print command
+        print(command)
         os.system(command)

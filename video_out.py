@@ -1,9 +1,12 @@
+import cv2
+import numpy as np
+
 class VideoOut:
 
     def __init__(self, video_file):
-        self.fourcc = cv2.VideoWriter_fourcc('M', 'J', 'P', 'G')
-        self.out    = cv2.VideoWriter(video_file, fourcc, 30 (640, 480))
-        self.img    = np.zeros((480, 640, 3), np.uint8)
+        fourcc   = cv2.VideoWriter_fourcc('M', 'J', 'P', 'G')
+        self.out = cv2.VideoWriter(video_file, fourcc, 30, (640, 480))
+        self.img = np.zeros((480, 640, 3), np.uint8)
 
     # Start of file indicator.
     def write_sof(self):
