@@ -1,10 +1,14 @@
 import sys
+import curses
+from curses import wrapper
 from store import Store
 
-def main():
+def main(stdscr):
     STORE   = False
     FILE    = sys.argv[2]
     STORAGE = Store(FILE)
+
+    stdscr.clear()
 
     for arg in sys.argv:
         STORE = True
@@ -18,5 +22,8 @@ def main():
 
     print('ALL DONE!')
 
+    stdscr.refresh()
+    stdscr.getkey()
+
 if __name__ == "__main__":
-    main()
+    wrapper(main)

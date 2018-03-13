@@ -1,3 +1,0 @@
-This is a text file containing some test data.
-We will now try to compress this using an algorithm inspired by Zipf's law.
-

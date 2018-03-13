@@ -34,4 +34,4 @@ class Store:
         ])
 
         print(command)
-        os.system(command)
+        # os.system(command)
