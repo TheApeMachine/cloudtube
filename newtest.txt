@@ -1,6 +1,0 @@
-We can write a few things here.
-That would make it quite cool to test...
-
-Also, I have not tried to use line returns yet.
-
-So we are doing that now.
