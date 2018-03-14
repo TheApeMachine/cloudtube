@@ -1,6 +1,7 @@
 import sys
 from curses import wrapper
 from ui import UI
+from db import DB
 from store import Store
 
 def main(stdscr):
@@ -8,19 +9,21 @@ def main(stdscr):
     STORE   = False
     FILE    = sys.argv[2]
     STORAGE = Store(FILE)
+    DBASE   = DB()
 
     for arg in sys.argv:
         STORE = True
 
     if STORE:
-        print('STORING ', FILE, '...')
+        MENU.debug(['STORING ', FILE, '...'])
         STORAGE.write()
     else:
-        print('RETRIEVING ', FILE, '...')
+        MENU.debug(['RETRIEVING ', FILE, '...'])
         STORAGE(FILE, retrieve=True)
 
-    print('ALL DONE!')
+    MENU.debug(['ALL DONE!'])
 
+    # Restore terminal to a sane state.
     stdscr.refresh()
     stdscr.getkey()
 

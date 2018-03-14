@@ -33,5 +33,5 @@ class Store:
             self.video_file
         ])
 
-        print(command)
+        # print(command)
         # os.system(command)

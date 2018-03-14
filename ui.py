@@ -8,15 +8,19 @@ class UI:
 
         self.stdscr.clear()
 
-        begin_x = 20
-        begin_y = 7
-        height  = 5
-        width   = 40
-        win     = curses.newwin(height, width, begin_y, begin_x)
-        pad     = curses.newpad(100, 100)
+        self.begin_x   = 20
+        self.begin_y   = 7
+        self.current_y = 1
+        self.height    = 5
+        self.width     = 40
+        self.win       = curses.newwin(self.height, self.width, self.begin_y, self.begin_x)
+        self.pad       = curses.newpad(100, 100)
 
-        pad.addch(10, 10, ord('a') + (10 * 10 + 10 * 10) % 26)
-        pad.refresh(0, 0, 5, 5, 20, 75)
+        self.pad.addch(10, 10, ord('a') + (10 * 10 + 10 * 10) % 26)
+        self.pad.refresh(0, 0, 5, 5, 20, 75)
 
-        self.stdscr.addstr(0, 0, "Current Mode: STORAGE", curses.A_REVERSE)
+    def debug(self, text):
+        self.stdscr.addstr(self.current_y, 1, ''.join(text), curses.A_REVERSE)
         self.stdscr.refresh()
+
+        self.current_y += 1
